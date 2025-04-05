@@ -1,0 +1,58 @@
+version: "3"
+
+env:
+  PLATFORMIO_ENV: "esp32doit-devkit-v1-80"
+
+tasks:
+  default:
+    desc: Run platformio build
+    cmds:
+      - platformio -f run
+
+  upload:
+    desc: Run platformio upload
+    cmds:
+      - platformio -f run --target upload
+
+  clean:
+    desc: Clean platformio build files
+    cmds:
+      - platformio -f run --target clean
+
+  monitor:
+    desc: Start platformio device monitor
+    cmds:
+      - platformio device monitor
+
+  program:
+    desc: Run platformio program
+    cmds:
+      - platformio -f run --target program
+
+  uploadfs:
+    desc: Upload filesystem image to device
+    cmds:
+      - platformio -f run --target uploadfs
+
+  upload-env:
+    desc: Run platformio upload with environment variable
+    cmds:
+      - platformio -f run --target upload -e {{if .ENV}}{{.ENV}}{{else}}esp32doit-devkit-v1-240{{end}}
+  clean-env:
+    desc: Clean platformio build files with environment variable
+    cmds:
+      - platformio -f run --target clean -e {{if .ENV}}{{.ENV}}{{else}}esp32doit-devkit-v1-240{{end}}
+  program-env:
+    desc: Run platformio program with environment variable
+    cmds:
+      - platformio -f run --target program -e {{if .ENV}}{{.ENV}}{{else}}esp32doit-devkit-v1-240{{end}}
+
+  uploadfs-env:
+    desc: Upload filesystem image to device with environment variable
+    cmds:
+      - platformio -f run --target uploadfs -e {{if .ENV}}{{.ENV}}{{else}}esp32doit-devkit-v1-240{{end}}
+
+  update:
+    desc: Update platformio
+    cmds:
+      - platformio -f update

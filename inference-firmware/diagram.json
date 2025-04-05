@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "author": "dhupee",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu1",
+      "top": 24.36,
+      "left": -157.95,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 145.48,
+      "left": -137.08,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 212.99,
+      "left": -139.25,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 110.9,
+      "left": 200.44,
+      "rotate": 90,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 158.22,
+      "left": 199.88,
+      "rotate": 90,
+      "attrs": { "color": "blue", "flip": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 143.93,
+      "left": 132.96,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 181.58,
+      "left": 132.89,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "imu1:GND", "esp:GND.2", "black", [ "h59.03", "v66.84" ] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "h41.17", "v128.44", "h166.6", "v-61.7" ] ],
+    [ "imu1:SCL", "esp:D22", "green", [ "h13.81", "v-80.35", "h193.71", "v41.79" ] ],
+    [ "imu1:SDA", "esp:D21", "green", [ "h29.54", "v-80.6", "h183.69", "v80.54" ] ],
+    [ "led1:A", "esp:D4", "green", [ "h-31.2", "v-9.94" ] ],
+    [ "esp:GND.1", "r1:1", "black", [ "h0" ] ],
+    [ "r1:2", "led1:C", "green", [ "v0" ] ],
+    [ "led2:C", "r2:2", "green", [ "h0" ] ],
+    [ "esp:GND.1", "r2:1", "black", [ "h0" ] ],
+    [ "led2:A", "esp:D2", "green", [ "h-43.29", "v-47.82" ] ],
+    [ "btn1:1.r", "esp:EN", "#8f4814", [ "h55.82", "v-134.48" ] ],
+    [ "btn1:1.l", "esp:GND.2", "black", [ "h-19.69", "v-41.77", "h117.3", "v32.29" ] ],
+    [ "btn2:1.r", "esp:D12", "green", [ "h13.23", "v-95.59" ] ],
+    [ "btn2:1.l", "esp:GND.2", "green", [ "h-28.33", "v50.21", "h143.55", "v-127.2" ] ]
+  ],
+  "dependencies": {}
+}

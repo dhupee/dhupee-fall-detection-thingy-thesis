@@ -1,0 +1,17 @@
+## Generated Files
+*.gbr
+*.gbrjob
+*.dxf
+*.svg
+*.gcode
+*.pdf
+schematics-backups
+
+# Backup and cache
+*-bak
+*-backups
+*-cache*
+*-bak*
+_autosave*
+\#auto_saved_files\#
+

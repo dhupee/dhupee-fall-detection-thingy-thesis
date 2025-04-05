@@ -1,0 +1,7 @@
+.pio
+.clang_complete
+.gcc-flags.json
+.ccls
+
+# excluding build file of the ML
+lib/dh-thesis_inferencing
